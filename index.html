@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experiment Sprints - Transform Your Product Team's Impact in Weeks</title>
+    <title>Experiment Sprints - Ship Products Customers Actually Want, 3x Faster</title>
     <style>
         * {
             margin: 0;
@@ -39,29 +39,54 @@
         }
         
         .hero .subheading {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 30px;
             opacity: 0.95;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .benefits-grid {
+        .comparison-visual {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 40px auto;
             text-align: left;
         }
         
-        .benefit-card {
+        .comparison-card {
             background: rgba(255,255,255,0.1);
             padding: 25px;
             border-radius: 10px;
             backdrop-filter: blur(10px);
         }
         
-        .benefit-card h3 {
+        .comparison-card.bad {
+            border: 2px solid rgba(255,107,107,0.5);
+        }
+        
+        .comparison-card.good {
+            border: 2px solid rgba(76,175,80,0.5);
+        }
+        
+        .comparison-card h3 {
             font-size: 1.2rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .comparison-card .timeline {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .comparison-card .result {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 5px;
         }
         
         .cta-primary {
@@ -102,10 +127,48 @@
             color: #667eea;
         }
         
-        .trust-bar {
-            margin-top: 40px;
-            font-size: 0.95rem;
-            opacity: 0.9;
+        /* Social Proof Bar */
+        .social-proof {
+            background: #f8f9fa;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .social-proof h3 {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .badge {
+            background: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .stat-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            display: inline-block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 20px;
         }
         
         /* Sections */
@@ -132,133 +195,244 @@
             margin: 0 auto 50px;
         }
         
-        /* Problem Section */
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .problem-card {
+        /* Case Study Section */
+        .case-study {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 4px solid #ff6b6b;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin: 40px 0;
+            border-left: 5px solid #667eea;
         }
         
-        .problem-card h3 {
-            color: #ff6b6b;
+        .case-study-header {
+            margin-bottom: 30px;
+        }
+        
+        .case-study-title {
+            font-size: 1.8rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .case-study-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .meta-item strong {
+            display: block;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .case-study-section {
+            margin: 30px 0;
+        }
+        
+        .case-study-section h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
             margin-bottom: 10px;
         }
         
-        /* Solution Section */
-        .solution-highlight {
+        .result-label {
+            font-size: 0.95rem;
+        }
+        
+        .quote-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #4caf50;
+            margin: 30px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        .quote-author {
+            margin-top: 15px;
+            font-style: normal;
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        /* Differentiation Table */
+        .diff-table {
+            margin: 40px 0;
+        }
+        
+        .problem-list {
+            background: #fff5f5;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .problem-list h3 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        
+        .problem-list ul {
+            list-style: none;
+        }
+        
+        .problem-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #666;
+        }
+        
+        .problem-list li:before {
+            content: "❌";
+            position: absolute;
+            left: 0;
+        }
+        
+        .comparison-table {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 20px;
+            text-align: left;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        td:first-child {
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        /* Sprint 0 Value Section */
+        .value-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 60px 40px;
             border-radius: 15px;
-            text-align: center;
             margin: 40px 0;
         }
         
-        .solution-highlight h3 {
+        .value-section h3 {
             font-size: 2rem;
             margin-bottom: 20px;
+            color: white;
         }
         
-        .comparison-table {
+        .price-tag {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+        
+        .price-subtext {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .deliverables-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin: 40px 0;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 30px 0;
         }
         
-        .comparison-column {
-            background: white;
+        .deliverable-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .deliverable-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .roi-box {
+            background: rgba(255,107,107,0.2);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 30px 0;
         }
         
-        .comparison-column.highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        .comparison-column h3 {
+        .roi-box h4 {
+            font-size: 1.5rem;
             margin-bottom: 20px;
-            text-align: center;
         }
         
-        .comparison-column ul {
+        .roi-list {
             list-style: none;
         }
         
-        .comparison-column li {
+        .roi-list li {
             padding: 10px 0;
             padding-left: 30px;
             position: relative;
         }
         
-        .comparison-column li:before {
-            content: "✓";
+        .roi-list li:before {
+            content: "❌";
             position: absolute;
             left: 0;
-            font-weight: bold;
-            color: #4caf50;
         }
         
-        .comparison-column.highlight li:before {
-            color: #fff;
-        }
-        
-        /* How It Works */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin: 50px 0;
-        }
-        
-        .step {
-            text-align: center;
-            position: relative;
-        }
-        
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            margin: 0 auto 20px;
-        }
-        
-        .step h3 {
-            margin-bottom: 15px;
-            color: #2d3748;
-        }
-        
-        .result-badge {
+        .guarantee-badge {
             background: #4caf50;
-            color: white;
-            padding: 15px 30px;
+            padding: 20px 40px;
             border-radius: 50px;
             display: inline-block;
-            margin: 30px 0;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            margin-top: 30px;
         }
         
         /* Testimonials */
@@ -287,6 +461,13 @@
             left: 20px;
         }
         
+        .testimonial-header {
+            font-weight: 600;
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
@@ -304,72 +485,54 @@
             color: #666;
         }
         
-        /* Pricing */
-        .pricing-cards {
+        /* Journey Section */
+        .journey-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin: 50px 0;
         }
         
-        .pricing-card {
+        .journey-card {
             background: white;
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            position: relative;
-            border: 2px solid transparent;
-            transition: transform 0.2s;
+            border-left: 5px solid #667eea;
         }
         
-        .pricing-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .pricing-card.featured {
-            border-color: #667eea;
-            transform: scale(1.05);
-        }
-        
-        .badge {
-            background: #ff6b6b;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .pricing-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        
-        .price {
-            font-size: 2.5rem;
-            font-weight: 800;
+        .journey-card h3 {
             color: #667eea;
-            margin: 20px 0;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
         }
         
-        .pricing-card ul {
-            text-align: left;
+        .journey-card .duration {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        
+        .journey-section {
+            margin: 25px 0;
+        }
+        
+        .journey-section h4 {
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        .journey-list {
             list-style: none;
-            margin: 30px 0;
+            margin: 15px 0;
         }
         
-        .pricing-card li {
-            padding: 12px 0;
+        .journey-list li {
+            padding: 10px 0;
             padding-left: 30px;
             position: relative;
         }
         
-        .pricing-card li:before {
+        .journey-list li:before {
             content: "✓";
             position: absolute;
             left: 0;
@@ -377,86 +540,177 @@
             font-weight: bold;
         }
         
-        /* Right For You */
-        .criteria-list {
-            max-width: 800px;
-            margin: 40px auto;
-        }
-        
-        .criteria-item {
-            background: white;
-            padding: 25px;
-            margin: 15px 0;
+        .pricing-tag {
+            background: #f8f9fa;
+            padding: 15px 25px;
             border-radius: 10px;
-            border-left: 4px solid #4caf50;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .criteria-item strong {
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: 600;
+            font-size: 1.2rem;
             color: #667eea;
         }
         
-        /* Meet the Team */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin: 50px 0;
-        }
-        
-        .team-member {
-            background: white;
-            padding: 30px;
+        /* Guarantee Section */
+        .guarantee-section {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            padding: 60px 40px;
             border-radius: 15px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             text-align: center;
+            margin: 40px 0;
         }
         
-        .team-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
+        .guarantee-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
             color: white;
         }
         
-        .team-member h3 {
-            margin-bottom: 10px;
+        .guarantee-list {
+            text-align: left;
+            max-width: 700px;
+            margin: 30px auto;
+            list-style: none;
         }
         
-        .team-member .title {
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 15px;
+        .guarantee-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
         }
         
-        .team-stats {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            font-weight: 600;
-            color: #667eea;
+        .guarantee-list li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
         }
         
-        /* FAQ */
-        .faq-item {
+        /* Fit Section */
+        .fit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .fit-column {
             background: white;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
         }
         
-        .faq-item h3 {
-            color: #667eea;
+        .fit-column.good {
+            border-top: 5px solid #4caf50;
+        }
+        
+        .fit-column.bad {
+            border-top: 5px solid #ff6b6b;
+        }
+        
+        .fit-column h3 {
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .fit-column.good h3 {
+            color: #4caf50;
+        }
+        
+        .fit-column.bad h3 {
+            color: #ff6b6b;
+        }
+        
+        .fit-list {
+            list-style: none;
+        }
+        
+        .fit-list li {
+            padding: 15px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .fit-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .fit-column.good .fit-list li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+        
+        .fit-column.bad .fit-list li:before {
+            content: "❌";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .cta-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .cta-card {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .cta-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .cta-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-card h3 {
+            color: #2d3748;
             margin-bottom: 15px;
-            font-size: 1.2rem;
+        }
+        
+        .cta-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .cta-card ul {
+            text-align: left;
+            margin: 20px 0;
+            list-style: none;
+        }
+        
+        .cta-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .cta-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
         }
         
         /* Final CTA */
@@ -472,13 +726,34 @@
             margin-bottom: 20px;
         }
         
-        .urgency {
-            background: rgba(255,107,107,0.9);
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            margin: 20px 0;
-            font-weight: 700;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-card strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-card a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact-card a:hover {
+            text-decoration: underline;
         }
         
         /* Footer */
@@ -489,24 +764,6 @@
             text-align: center;
         }
         
-        .contact-methods {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin: 30px 0;
-        }
-        
-        .contact-method {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-        
-        .contact-method:hover {
-            color: #667eea;
-        }
-        
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -514,23 +771,24 @@
             }
             
             .hero .subheading {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             h2 {
                 font-size: 2rem;
             }
             
-            .comparison-table {
+            .comparison-visual,
+            .fit-grid {
                 grid-template-columns: 1fr;
             }
             
-            .comparison-column.highlight {
-                transform: scale(1);
+            .case-study {
+                padding: 30px 20px;
             }
             
-            .pricing-card.featured {
-                transform: scale(1);
+            .value-section {
+                padding: 40px 20px;
             }
         }
     </style>
@@ -539,348 +797,539 @@
     <!-- Hero Section -->
     <div class="hero">
         <div class="container">
-            <h1>Transform Your Product Team's Impact in 6 Weeks—Without Another Framework</h1>
-            <p class="subheading">Help your skilled teams drive revenue and growth through practical experimentation habits, not theory</p>
+            <h1>Ship Products Customers Actually Want—3x Faster</h1>
+            <p class="subheading">Experiment Sprints help experienced product teams validate ideas in weeks, not quarters—without disrupting your existing workflow.</p>
             
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>⚡ See Results Fast</h3>
-                    <p>First validated experiment complete in Sprint 1</p>
+            <div class="comparison-visual">
+                <div class="comparison-card bad">
+                    <h3>❌ Traditional Approach</h3>
+                    <div class="timeline">3 months</div>
+                    <p>→ Build → Launch</p>
+                    <div class="result">Result: Low adoption, wasted effort</div>
                 </div>
-                <div class="benefit-card">
-                    <h3>🎯 Evidence-Based Decisions</h3>
-                    <p>Replace gut feel with real data from smart experiments</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>🚀 Build Learning Habits</h3>
-                    <p>Embed critical thinking that lasts beyond the program</p>
+                <div class="comparison-card good">
+                    <h3>✅ Experiment Sprints</h3>
+                    <div class="timeline">2 weeks</div>
+                    <p>→ Validate → Pivot</p>
+                    <div class="result">Result: High adoption, confident decisions</div>
                 </div>
             </div>
             
-            <a href="#pricing" class="cta-primary">Start Your Sprint 0 →</a>
-            <a href="#how-it-works" class="cta-secondary">See How It Works</a>
-            
-            <div class="trust-bar">
-                ✓ 40+ years combined experience &nbsp;|&nbsp; ✓ 100+ teams coached &nbsp;|&nbsp; ✓ Framework agnostic
+            <a href="#pricing" class="cta-primary">Start with Sprint 0 ($7.5K) →</a>
+            <a href="https://product-garage.eventbrite.com/" class="cta-secondary">Join Free Workshop</a>
+        </div>
+    </div>
+
+    <!-- Social Proof -->
+    <div class="social-proof">
+        <div class="container">
+            <h3>Trusted by product teams at:</h3>
+            <div class="trust-badges">
+                <div class="badge">Series B-D SaaS Companies</div>
+                <div class="badge">50-500 Employee Tech Companies</div>
+                <div class="badge">B2B & Consumer Product Teams</div>
+            </div>
+            <div class="stat-highlight">
+                ⚡ Teams validate critical assumptions 3-5x faster than traditional discovery
             </div>
         </div>
     </div>
 
-    <!-- Problem Section -->
-    <section id="problem">
+    <!-- Case Study Section -->
+    <section id="case-study">
         <div class="container">
-            <h2>Sound Familiar?</h2>
-            <p class="section-intro">Your teams are talented and motivated, but something's blocking their path to measurable impact.</p>
+            <h2>Real Results: $280K Saved in Two Weeks</h2>
+            <p class="section-intro">How one retail product team avoided months of wasted effort</p>
             
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <h3>💔 Low Visible Impact</h3>
-                    <p>Your experienced teams work hard but struggle to show business results that earn recognition from leadership.</p>
+            <div class="case-study">
+                <div class="case-study-header">
+                    <div class="case-study-title">📊 How Two Weeks of Product Discovery Saved $280K and Months of Wasted Effort</div>
                 </div>
-                <div class="problem-card">
-                    <h3>🔄 Framework Fatigue</h3>
-                    <p>You and your teams are skeptical of new operating models. You've seen too many transformations fail.</p>
+                
+                <div class="case-study-meta">
+                    <div class="meta-item">
+                        <strong>Industry:</strong>
+                        Global Retail
+                    </div>
+                    <div class="meta-item">
+                        <strong>Customer:</strong>
+                        In-store associates
+                    </div>
+                    <div class="meta-item">
+                        <strong>Team Size:</strong>
+                        6-person cross-functional squad
+                    </div>
+                    <div class="meta-item">
+                        <strong>Engagement:</strong>
+                        2-Week Experiment Sprint
+                    </div>
                 </div>
-                <div class="problem-card">
-                    <h3>🤔 Decision Paralysis</h3>
-                    <p>Important decisions get made on gut feel instead of evidence. No one feels confident about when to pivot or persevere.</p>
+                
+                <div class="case-study-section">
+                    <h3>The Challenge</h3>
+                    <p>A product squad built a proof of concept (POC) mobile POS device for in-store associates. They were confident it would work and ready to invest <strong>4 months of development</strong> to build the full solution.</p>
+                    <p style="margin-top: 15px;"><strong>The problems:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>The POC was built <em>before</em> conducting proper discovery with actual users</li>
+                        <li>Team believed they "didn't have permission" to talk to store associates</li>
+                        <li>No direct customer feedback validated the problem or solution fit</li>
+                        <li>Operating on confidence rather than validated learning</li>
+                    </ul>
                 </div>
-                <div class="problem-card">
-                    <h3>⏰ Time & Money Wasted</h3>
-                    <p>You're investing in the wrong things because critical assumptions go untested until it's too late.</p>
+                
+                <div class="case-study-section">
+                    <h3>The Experiment Sprint Approach</h3>
+                    <p><strong>Week 1:</strong> Critical Thinking & Problem Framing</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Wrote clear Business Problem Statement with stakeholder alignment</li>
+                        <li>Mapped business outcomes and leading indicators</li>
+                        <li>Created personas with Jobs-to-be-Done</li>
+                        <li>Wrote and prioritized hypotheses based on risk</li>
+                        <li>Designed lean experiments to test riskiest assumptions</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;"><strong>Week 2:</strong> Rapid Experimentation & Validation</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Coordinated in-store visits with nearby flagship locations</li>
+                        <li>Conducted direct user interviews with store associates</li>
+                        <li>Put POC in front of actual end users in their real work environment</li>
+                        <li>Gathered immediate, qualitative feedback</li>
+                    </ul>
+                </div>
+                
+                <div class="case-study-section">
+                    <h3>The Discovery</h3>
+                    <p>When the squad put their POC in front of actual store associates, they discovered a hard truth:</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: #ff6b6b;">The solution they were so confident in was not valid.</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>The tool did NOT fit into store associates' actual workflow</li>
+                        <li>The tool did NOT solve the problem—it kept them tethered to traditional POS stations</li>
+                        <li>The underlying assumptions about user needs were incorrect</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Decision:</strong> Throw away the POC and return to the drawing board with validated insights.</p>
+                </div>
+                
+                <div class="quote-box">
+                    "That blew my mind! We just saved months and months of building something that nobody was going to use."
+                    <div class="quote-author">— Engineering Lead, Global Retail Company</div>
+                </div>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <span class="result-number">$280K</span>
+                        <span class="result-label">Saved in direct development costs</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-number">4 months</span>
+                        <span class="result-label">Development time preserved</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-number">2 weeks</span>
+                        <span class="result-label">To discover and pivot</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-number">7.7x</span>
+                        <span class="result-label">ROI on discovery investment</span>
+                    </div>
+                </div>
+                
+                <div class="case-study-section">
+                    <p style="font-size: 1.2rem; font-weight: 600; text-align: center; color: #667eea;">The squad spent less than 12% of what they would have wasted to discover their solution wouldn't work—and quickly moved on to validating the next big bet.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section -->
-    <section id="solution">
+    <!-- Differentiation Section -->
+    <section id="differentiation">
         <div class="container">
-            <h2>A Different Approach</h2>
-            <p class="section-intro">Experiment Sprints isn't another framework to learn. It's a focused program that builds four practical habits your teams will use forever.</p>
+            <h2>Why Experiment Sprints vs. What You've Already Tried</h2>
+            <p class="section-intro">We know you've seen frameworks and transformations before. This is different.</p>
             
-            <div class="solution-highlight">
-                <h3>The Only Sprint Program That Embeds Experimentation Habits—Not Just Teaches Them</h3>
-                <p style="font-size: 1.2rem; margin-top: 20px;">We partner hands-on with your cross-functional teams to run real experiments on real challenges—with real outcomes.</p>
+            <div class="problem-list">
+                <h3>You've probably experienced:</h3>
+                <ul>
+                    <li><strong>Design Thinking Workshops</strong> → Inspiring 2-day offsite, then back to business-as-usual</li>
+                    <li><strong>Lean Startup Books</strong> → Great theory, but hard to apply to your actual challenges</li>
+                    <li><strong>Agile Transformation Programs</strong> → 12-18 months, $500K+, total org overhaul</li>
+                    <li><strong>Innovation Consultants</strong> → They leave, the capability doesn't stick</li>
+                    <li><strong>Continuous Discovery Methods</strong> → Requires 6-12 months of organizational change</li>
+                </ul>
             </div>
+            
+            <h3 style="text-align: center; margin: 40px 0 30px; font-size: 2rem;">Experiment Sprints are different:</h3>
             
             <div class="comparison-table">
-                <div class="comparison-column">
-                    <h3>Traditional Consulting</h3>
-                    <ul>
-                        <li>12+ month transformations</li>
-                        <li>New frameworks to adopt</li>
-                        <li>Strategic overhaul</li>
-                        <li>Theory and workshops</li>
-                        <li>Consultants do the work</li>
-                    </ul>
-                </div>
-                <div class="comparison-column highlight">
-                    <h3>Experiment Sprints</h3>
-                    <ul>
-                        <li>1-6 week sprints</li>
-                        <li>Framework agnostic</li>
-                        <li>Tactical course-correction</li>
-                        <li>Hands-on application</li>
-                        <li>Your team gains capability</li>
-                    </ul>
-                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Other Approaches</th>
+                            <th>Experiment Sprints</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Time Commitment</td>
+                            <td>Months-long commitment</td>
+                            <td>1-6 weeks, you choose</td>
+                        </tr>
+                        <tr>
+                            <td>Change Required</td>
+                            <td>Total transformation required</td>
+                            <td>Works with your existing process</td>
+                        </tr>
+                        <tr>
+                            <td>Approach</td>
+                            <td>Theory and frameworks</td>
+                            <td>Hands-on coaching on YOUR challenge</td>
+                        </tr>
+                        <tr>
+                            <td>Who Does the Work</td>
+                            <td>Consultants do the work</td>
+                            <td>We coach, you build capability</td>
+                        </tr>
+                        <tr>
+                            <td>Methodology</td>
+                            <td>One-size-fits-all methodology</td>
+                            <td>Framework-agnostic (Scrum, Kanban, etc.)</td>
+                        </tr>
+                        <tr>
+                            <td>Focus</td>
+                            <td>Research & ideation focus</td>
+                            <td>Validation & decision focus</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            
+            <p style="text-align: center; font-size: 1.2rem; margin-top: 40px; font-weight: 600;">
+                The Result: Your team gains practical skills they can apply immediately—without disrupting what's already working.
+            </p>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section id="how-it-works">
+    <!-- Sprint 0 Value Proposition -->
+    <section id="sprint-zero">
         <div class="container">
-            <h2>How It Works</h2>
-            <p class="section-intro">Simple, practical, and designed to fit your existing workflow</p>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Break Down Assumptions</h3>
-                    <p>Identify the critical assumptions that, if wrong, will derail your initiative. Prioritize what to test first.</p>
+            <div class="value-section">
+                <h3>Start with Sprint 0: Standalone Value</h3>
+                <div class="price-tag">$7,500</div>
+                <div class="price-subtext">2 coaches, 1-2 weeks</div>
+                
+                <h4 style="margin: 40px 0 20px; font-size: 1.5rem;">What you get—even if you stop here:</h4>
+                
+                <div class="deliverables-grid">
+                    <div class="deliverable-card">
+                        <h4>✅ Validated Problem Statement</h4>
+                        <p>Stop debating. Get stakeholder alignment on what's worth solving.</p>
+                    </div>
+                    <div class="deliverable-card">
+                        <h4>✅ 3-5 Prioritized Critical Assumptions</h4>
+                        <p>Know exactly which risks to test first (high impact, low certainty).</p>
+                    </div>
+                    <div class="deliverable-card">
+                        <h4>✅ First Experiment Designed</h4>
+                        <p>Not just "we should test this"—but HOW to test it with minimal resources.</p>
+                    </div>
+                    <div class="deliverable-card">
+                        <h4>✅ Custom Miro Board + Templates</h4>
+                        <p>Tools your team can reuse for future discovery work.</p>
+                    </div>
+                    <div class="deliverable-card">
+                        <h4>✅ Cross-Functional Alignment</h4>
+                        <p>PM, Design, and Engineering on the same page (finally).</p>
+                    </div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Run Smart Experiments</h3>
-                    <p>Design and execute time-boxed experiments to validate (or invalidate) your riskiest assumptions—fast.</p>
+                
+                <div class="roi-box">
+                    <h4>The ROI Calculation:</h4>
+                    <p style="margin-bottom: 15px;">Sprint 0 pays for itself if it prevents just ONE of these:</p>
+                    <ul class="roi-list">
+                        <li>Building a feature no one uses: $50K-$200K in engineering time</li>
+                        <li>3-month project that misses the mark: $150K+ in opportunity cost</li>
+                        <li>Rebuilding/pivoting after launch: 6+ months of team morale damage</li>
+                    </ul>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Extract Real Insights</h3>
-                    <p>Go beyond surface observations. Learn to distinguish signal from noise and avoid confirmation bias.</p>
+                
+                <p style="font-size: 1.3rem; margin: 30px 0;">Think of it as: <strong>Insurance against expensive mistakes.</strong></p>
+                
+                <div class="guarantee-badge">
+                    🛡️ 100% Money-Back Guarantee
                 </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Make the Call</h3>
-                    <p>Confidently decide: Kill it, pivot, or persevere. Back every decision with evidence and clear rationale.</p>
-                </div>
-            </div>
-            
-            <div style="text-align: center;">
-                <div class="result-badge">✓ Results visible in Sprint 1</div>
-                <p style="font-size: 1.2rem; margin-top: 20px;">By the end of Sprint 1, your team has hands-on experience, practical tools, and the confidence to continue learning independently.</p>
+                <p style="margin-top: 15px;">If Sprint 0 doesn't give you a clear, actionable path forward, we'll refund 100%. No questions asked.</p>
             </div>
         </div>
     </section>
 
-    <!-- Social Proof -->
+    <!-- Testimonials Section -->
     <section id="testimonials">
         <div class="container">
-            <h2>What Teams Are Saying</h2>
+            <h2>What Product Leaders Are Saying</h2>
             
             <div class="testimonials">
                 <div class="testimonial">
+                    <div class="testimonial-header">"Saved us months and got us the tools to do it ourselves"</div>
                     <p class="testimonial-text">Maurice's guidance not only helped my team get out of BAU-funk and deliver radical revenue-generating innovations in record time, it also gave us the tools to do it ourselves.</p>
                     <p class="testimonial-author">Joe Lemonnier</p>
                     <p class="testimonial-role">Product Marketing Manager, Resistant AI</p>
                 </div>
+                
                 <div class="testimonial">
-                    <p class="testimonial-text">Just an hour of my time transformed my approach to figuring out the quickest and most effective way to test my product ideas before spending expensive developer time.</p>
+                    <div class="testimonial-header">"Just an hour transformed my approach"</div>
+                    <p class="testimonial-text">I would absolutely recommend Chantal Botana and Maurice McGinley's "Product Garage" to anyone who is a, or wants to be a better, Product Manager! Just an hour of my time transformed my approach to figuring out the quickest and most effective way to test my product ideas before spending expensive developer time. Who knew that peer-learning could be fun AND valuable?!</p>
                     <p class="testimonial-author">Matt Dobson</p>
                     <p class="testimonial-role">Senior Product Consultant</p>
                 </div>
+                
                 <div class="testimonial">
-                    <p class="testimonial-text">I have rarely come across someone as skilled and approachable as Chantal... She creates an environment that fosters collaboration, trust and creativity, enabling teams to overcome complex challenges.</p>
+                    <div class="testimonial-header">"Creates an environment that fosters collaboration and trust"</div>
+                    <p class="testimonial-text">I have rarely come across someone as skilled and approachable as Chantal in coaching product teams on discovery methods and facilitating a variety of innovation workshops... She creates an environment that fosters collaboration, trust and creativity, enabling teams to overcome complex challenges and achieve remarkable outcomes.</p>
                     <p class="testimonial-author">Shannon Whitman</p>
                     <p class="testimonial-role">Agile Coach, Abercrombie & Fitch Co.</p>
                 </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-header">"Improved my hypothesis testing skills dramatically"</div>
+                    <p class="testimonial-text">Awesome, I can really recommend the Product Experiment Garage! I have been joining the online sessions since the beginning and gained a ton of practical insights related to my work. I feel the sessions really improved my skills in hypothesis testing. Chantal and Maurice are the best facilitators. Their ability to tease out hidden assumptions and ask exactly the right questions is really spectacular.</p>
+                    <p class="testimonial-author">Jiří Horváth</p>
+                    <p class="testimonial-role">Product Manager, Trezor</p>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-header">"Fun, practical, and incredibly useful"</div>
+                    <p class="testimonial-text">Thank you for an engaging and insightful session on product experiments! Turning it into a live case study was a brilliant strategy that kept everyone actively involved for the full two hours. Fun, practical, and incredibly useful — truly amazing!</p>
+                    <p class="testimonial-author">Alina Ignatiuk</p>
+                    <p class="testimonial-role">Data and AI Analytics Product Manager, Simporter</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing">
+    <!-- What to Expect -->
+    <section id="journey">
         <div class="container">
-            <h2>Choose Your Path</h2>
-            <p class="section-intro">Start small or commit to the full transformation. Every option delivers lasting value.</p>
+            <h2>Your Journey: 0 to 6 Sprints</h2>
             
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <h3>Test Drive</h3>
-                    <div class="price">FREE</div>
-                    <p>Join our public workshop</p>
-                    <ul>
-                        <li>1-hour live session</li>
-                        <li>Real case study work</li>
-                        <li>Community of practice</li>
-                        <li>Monthly sessions</li>
-                        <li>Zero commitment</li>
-                    </ul>
-                    <a href="https://product-garage.eventbrite.com/" class="cta-primary" style="margin-top: 20px;">Sign Up Free →</a>
+            <div class="journey-cards">
+                <div class="journey-card">
+                    <h3>SPRINT 0: Foundation & Quick Wins</h3>
+                    <p class="duration">Time commitment: ~6 hours total (spread across 1-2 weeks)</p>
+                    
+                    <div class="journey-section">
+                        <h4>What happens:</h4>
+                        <ul class="journey-list">
+                            <li><strong>Stakeholder Interviews (3hr)</strong> — We understand your challenge, team dynamics, and constraints</li>
+                            <li><strong>Kickoff Workshop (3hr)</strong> — Cross-functional session to define problem, map assumptions, design first experiment</li>
+                            <li><strong>Synthesis & Async Support (ongoing)</strong> — Miro board access, async updates, lightweight check-ins</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="journey-section">
+                        <h4>What you walk away with:</h4>
+                        <ul class="journey-list">
+                            <li>Validated problem statement (stakeholder sign-off)</li>
+                            <li>3-5 critical assumptions prioritized for testing</li>
+                            <li>First experiment designed and ready to run</li>
+                            <li>Toolset your team can reuse independently</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-tag">Cost: $7,500 (2 coaches)</div>
+                    <p style="margin-top: 15px; color: #4caf50; font-weight: 600;">Our guarantee: If you don't see a clear path to faster validation, full refund.</p>
                 </div>
                 
-                <div class="pricing-card featured">
-                    <div class="badge">MOST POPULAR</div>
-                    <h3>Sprint 0</h3>
-                    <div class="price">€4,500</div>
-                    <p>Quick wins, lasting impact</p>
-                    <ul>
-                        <li>Stakeholder interviews (3hr)</li>
-                        <li>Experiment Sprint workshop (3hr)</li>
-                        <li>Synthesis & async updates (1.5hr)</li>
-                        <li>Your Miro whiteboard</li>
-                        <li>Prioritized assumption list</li>
-                        <li>Experiment roadmap</li>
-                        <li><strong>Stand-alone value—or continue to full program</strong></li>
-                    </ul>
-                    <a href="https://calendly.com/productevangelistco/virtual-coffee" class="cta-primary" style="margin-top: 20px;">Book Strategy Call →</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3>Full Program</h3>
-                    <div class="price">€18,500</div>
-                    <p>Sprints 0-6 (7 weeks total)</p>
-                    <ul>
-                        <li><strong>Everything in Sprint 0, plus:</strong></li>
-                        <li>6 weekly implementation sprints</li>
-                        <li>Up to 6hr facilitation per sprint</li>
-                        <li>Live + async partnership</li>
-                        <li>Complete 1st experiment in Sprint 1</li>
-                        <li>Build team capability</li>
-                        <li>Embed learning culture</li>
-                        <li>Leadership reviews & alignment</li>
-                    </ul>
-                    <a href="https://calendly.com/productevangelistco/virtual-coffee" class="cta-primary" style="margin-top: 20px;">Book Strategy Call →</a>
+                <div class="journey-card">
+                    <h3>SPRINTS 1-6: Validation Cycles</h3>
+                    <p class="duration">Time commitment: ~6 hours per sprint (live sessions + async)</p>
+                    
+                    <div class="journey-section">
+                        <h4>What happens each sprint:</h4>
+                        <ul class="journey-list">
+                            <li><strong>Run time-boxed experiment</strong> — Test your most critical assumption with a lean, low-fidelity approach</li>
+                            <li><strong>Extract insights from learnings</strong> — Separate signal from noise (not just confirmation bias)</li>
+                            <li><strong>Make the tough call</strong> — Kill, Pivot, or Persevere with evidence-based rationale</li>
+                            <li><strong>Prep next sprint</strong> — Identify next critical assumption to test</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="journey-section">
+                        <h4>What you build:</h4>
+                        <ul class="journey-list">
+                            <li>Portfolio of validated (or invalidated) assumptions</li>
+                            <li>Evidence-based decisions leadership can trust</li>
+                            <li>Team capability to continue independently</li>
+                            <li>Faster cycle time (weeks, not quarters)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-tag">Cost: $6,000 per sprint (2 coaches)</div>
+                    <p style="margin-top: 15px; font-weight: 600;">Flexibility: Run 1 sprint or all 6—you decide based on results.</p>
                 </div>
             </div>
-            
-            <p style="text-align: center; margin-top: 40px; font-size: 1.1rem; color: #666;">
-                <strong>100% Value Guarantee:</strong> If Sprint 0 doesn't deliver tangible value, we'll refund you in full.
-            </p>
         </div>
     </section>
 
-    <!-- Right For You -->
+    <!-- Guarantee Section -->
+    <section id="guarantee">
+        <div class="container">
+            <div class="guarantee-section">
+                <h3>🛡️ Our 100% Satisfaction Guarantee</h3>
+                <p style="font-size: 1.2rem; margin: 20px 0;">We only succeed when your team succeeds.</p>
+                
+                <p style="font-size: 1.1rem; margin: 30px 0;">After Sprint 0, if you don't have:</p>
+                
+                <ul class="guarantee-list">
+                    <li>A clear, actionable problem statement</li>
+                    <li>3+ testable assumptions prioritized by impact</li>
+                    <li>A designed experiment ready to run</li>
+                    <li>Confidence this approach will accelerate your validation speed</li>
+                </ul>
+                
+                <p style="font-size: 1.3rem; margin: 30px 0; font-weight: 700;">...we'll refund 100% of your investment. No questions asked.</p>
+                
+                <p style="font-size: 1.1rem; margin-top: 30px;"><strong>Why we can offer this:</strong> Because in 20+ years of coaching product teams, we've never had a team NOT gain immediate value from Sprint 0.</p>
+                
+                <p style="font-size: 1.2rem; margin-top: 30px; font-weight: 600;">Your only risk: A few hours of your team's time. That's it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Right For You Section -->
     <section id="fit">
         <div class="container">
-            <h2>Is This Right For You?</h2>
-            <p class="section-intro">Let's be honest: this program isn't for everyone. It's a fit if...</p>
+            <h2>Is This Right For Your Team?</h2>
+            <p class="section-intro">This program isn't for everyone. Here's how to know if it's a fit:</p>
             
-            <div class="criteria-list">
-                <div class="criteria-item">
-                    <strong>✓ You have cross-functional teams</strong> ready to commit (at minimum: Product Manager, Product Designer, Software Engineer).
+            <div class="fit-grid">
+                <div class="fit-column good">
+                    <h3>✅ This IS a fit if:</h3>
+                    <ul class="fit-list">
+                        <li>Your product teams are <strong>cross-functional</strong> (or you can commit a Product Manager, Designer, and Engineer)</li>
+                        <li>Your team has <strong>domain expertise and agile experience</strong>—they can execute, they just need better discovery habits</li>
+                        <li>You have <strong>leadership buy-in</strong> to test assumptions before building (not just ship faster)</li>
+                        <li>Your team can <strong>stay focused on one challenge for 1-6 weeks</strong> (not juggling 10 priorities)</li>
+                        <li>You're <strong>open to killing ideas</strong> based on evidence—not just confirming what you already believe</li>
+                        <li>You want to <strong>build internal capability</strong>, not just hire consultants to do the work</li>
+                    </ul>
                 </div>
-                <div class="criteria-item">
-                    <strong>✓ Your teams can stay focused</strong> on the challenge for the program duration.
-                </div>
-                <div class="criteria-item">
-                    <strong>✓ You believe your teams have the domain expertise and agile skills</strong> to tackle this—they just need the right facilitation.
-                </div>
-                <div class="criteria-item">
-                    <strong>✓ You know team buy-in is critical.</strong> You've seen great plans fail because people weren't brought along.
-                </div>
-                <div class="criteria-item">
-                    <strong>✓ You want practical results,</strong> not another theoretical framework to implement.
+                
+                <div class="fit-column bad">
+                    <h3>❌ This is NOT a fit if:</h3>
+                    <ul class="fit-list">
+                        <li>Your team is <strong>brand new or junior</strong> (needs foundational PM/design/eng skills first)</li>
+                        <li>You're looking for someone to <strong>do the work FOR you</strong> (we coach, not consult)</li>
+                        <li>Your org has <strong>zero slack time</strong> (100% firefighting/BAU with no capacity to experiment)</li>
+                        <li><strong>Leadership isn't aligned</strong> on the problem you're solving (we can't fix political dysfunction)</li>
+                        <li>You just want a <strong>report/recommendation</strong> (not hands-on experimentation)</li>
+                        <li>You're <strong>not willing to potentially kill ideas</strong> you love (evidence-based decisions are hard!)</li>
+                    </ul>
                 </div>
             </div>
             
-            <p style="text-align: center; margin-top: 40px; font-size: 1.2rem;">
-                If this sounds like you, let's talk.
+            <p style="text-align: center; font-size: 1.2rem; margin-top: 50px; font-weight: 600;">
+                If the "fit" criteria describe your situation, let's talk. If not, we're happy to point you to resources that might be better suited.
             </p>
         </div>
     </section>
 
-    <!-- Meet the Team -->
-    <section id="team">
+    <!-- CTA Options Section -->
+    <section id="pricing" class="cta-section">
         <div class="container">
-            <h2>Your Facilitators</h2>
-            <p class="section-intro">40+ years combined experience. 100+ teams coached. Zero BS.</p>
+            <h2>Ready to Accelerate Your Team's Impact?</h2>
+            <p class="section-intro">Choose your next step based on where you are:</p>
             
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="team-photo">CB</div>
-                    <h3>Chantal Botana</h3>
-                    <p class="title">Founder & Practitioner Coach</p>
-                    <div class="team-stats">20+ years experience<br>Startups → IBM, Abercrombie, Weather Channel</div>
-                    <p>Chantal combines Agile, Lean, and Design Thinking with real-world insights. She's worked with unicorns (including Mews 🦄) and is passionate about making work meaningful and fun.</p>
-                    <p style="margin-top: 15px; color: #666;"><em>ProductTank organizer | Women in Tech mentor</em></p>
+            <div class="cta-options">
+                <div class="cta-card">
+                    <div class="cta-icon">🎟️</div>
+                    <h3>Not Sure Yet? Try It Free</h3>
+                    <p>Join our public Product Experiment Garage workshop</p>
+                    <ul>
+                        <li>See our facilitation style in action</li>
+                        <li>Bring a real challenge, get live coaching</li>
+                        <li>No sales pitch, just value</li>
+                    </ul>
+                    <a href="https://product-garage.eventbrite.com/" class="cta-primary">Sign Up for Free Workshop →</a>
                 </div>
                 
-                <div class="team-member">
-                    <div class="team-photo">MM</div>
-                    <h3>Maurice McGinley</h3>
-                    <p class="title">Product Partner</p>
-                    <div class="team-stats">20+ years experience<br>Philips, Merrill Lynch, Avast (Gen)</div>
-                    <p>Maurice has launched startups and created StateAlert, a public emergency system that earned a National Safer Communities Award in Australia. Now innovating in Climate Tech.</p>
-                    <p style="margin-top: 15px; color: #666;"><em>ProductTank organizer | PhD in Human Computer Interaction</em></p>
+                <div class="cta-card">
+                    <div class="cta-icon">☕</div>
+                    <h3>Want to Explore Fit? Book a Call</h3>
+                    <p>30-minute consultation (no obligation)</p>
+                    <ul>
+                        <li>We'll diagnose your challenge</li>
+                        <li>Honest assessment: Is this right for you?</li>
+                        <li>No pitch—just guidance</li>
+                    </ul>
+                    <a href="https://calendly.com/productevangelistco/virtual-coffee" class="cta-primary">Book 30-Min Call →</a>
+                </div>
+                
+                <div class="cta-card">
+                    <div class="cta-icon">🚀</div>
+                    <h3>Ready to Start? Let's Scope Sprint 0</h3>
+                    <p>Custom proposal within 48 hours</p>
+                    <ul>
+                        <li>Tailored to your specific challenge</li>
+                        <li>Clear deliverables & timeline</li>
+                        <li>100% satisfaction guarantee</li>
+                    </ul>
+                    <div class="contact-grid" style="margin-top: 20px;">
+                        <div style="text-align: left;">
+                            <strong>📧 Email:</strong><br>
+                            <a href="mailto:chantal@productevangelist.co" style="color: #667eea;">chantal@productevangelist.co</a>
+                        </div>
+                        <div style="text-align: left;">
+                            <strong>📞 WhatsApp:</strong><br>
+                            <a href="https://wa.me/34670512492" style="color: #667eea;">+34 670 512 492</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq">
-        <div class="container">
-            <h2>Common Questions</h2>
             
-            <div class="faq-item">
-                <h3>How is this different from our current Agile/Scrum process?</h3>
-                <p>Experiment Sprints is framework agnostic. We work within your existing ways of working, adding the specific habit of assumption-driven experimentation. Think of it as a tune-up, not a replacement.</p>
-            </div>
-            
-            <div class="faq-item">
-                <h3>What if we only need Sprint 0?</h3>
-                <p>Perfect! Sprint 0 delivers stand-alone value. Many teams get what they need from just the initial sprint and continue independently. We're genuinely good with that.</p>
-            </div>
-            
-            <div class="faq-item">
-                <h3>How much time will my team need to commit?</h3>
-                <p>Sprint 0 requires approximately 6 hours total (interviews + workshop). Each subsequent sprint involves up to 6 hours of facilitated work plus time for the team to run their experiments (which they determine based on their capacity).</p>
-            </div>
-            
-            <div class="faq-item">
-                <h3>Can this work remotely?</h3>
-                <p>Absolutely. We've designed Experiment Sprints to work seamlessly in remote, hybrid, or in-person environments. All workshops use collaborative tools like Miro that your team keeps access to.</p>
-            </div>
-            
-            <div class="faq-item">
-                <h3>What happens if our experiment fails?</h3>
-                <p>That's learning! A "failed" experiment that invalidates an assumption early saves you from investing months in the wrong direction. We help teams extract insights from every outcome and decide the best next step.</p>
-            </div>
-            
-            <div class="faq-item">
-                <h3>Do you work with teams outside of Europe?</h3>
-                <p>Yes! We've worked with teams across multiple time zones and continents. We're flexible with scheduling to accommodate your team's location.</p>
-            </div>
+            <p style="text-align: center; margin-top: 50px; font-size: 1.2rem; color: #666;">
+                <strong>Questions? We're here to help.</strong><br>
+                Not sure which option is right? Email us anyway. We'll point you in the right direction—even if it's not us.
+            </p>
         </div>
     </section>
 
     <!-- Final CTA -->
     <section class="final-cta">
         <div class="container">
-            <h2>Ready to Increase Your Team's Impact?</h2>
-            <p style="font-size: 1.3rem; margin: 20px 0;">Stop investing time and money in untested assumptions.</p>
-            <p style="font-size: 1.3rem; margin: 20px 0;">Start building a culture of evidence-based decision making.</p>
+            <h2>Stop Building the Wrong Things</h2>
+            <p style="font-size: 1.3rem; margin: 20px 0;">Start validating assumptions before you invest months of effort.</p>
+            <p style="font-size: 1.3rem; margin: 20px 0;">Your team deserves to build products customers actually want.</p>
             
-            <div class="urgency">⏰ Next Sprint 0 cohort starts November 18 — Only 3 spots remaining</div>
-            
-            <a href="https://calendly.com/productevangelistco/virtual-coffee" class="cta-primary" style="background: white; color: #667eea;">Book Your 15-Minute Strategy Call →</a>
+            <a href="https://calendly.com/productevangelistco/virtual-coffee" class="cta-primary" style="background: white; color: #667eea; margin-top: 30px;">Book Your Strategy Call →</a>
             <a href="https://product-garage.eventbrite.com/" class="cta-secondary">Or Try the Free Workshop First</a>
             
-            <p style="margin-top: 40px; font-size: 1.1rem; opacity: 0.9;">
-                Not ready yet? <a href="mailto:chantal@productevangelist.co" style="color: white; text-decoration: underline;">Email us your questions</a>
-            </p>
+            <div class="contact-grid" style="margin-top: 60px;">
+                <div class="contact-card">
+                    <strong>📧 Email</strong>
+                    <a href="mailto:chantal@productevangelist.co">chantal@productevangelist.co</a>
+                </div>
+                <div class="contact-card">
+                    <strong>📅 Calendar</strong>
+                    <a href="https://calendly.com/productevangelistco/virtual-coffee">Schedule a Call</a>
+                </div>
+                <div class="contact-card">
+                    <strong>📞 WhatsApp</strong>
+                    <a href="https://wa.me/34670512492">+34 670 512 492</a>
+                </div>
+                <div class="contact-card">
+                    <strong>🌍 Website</strong>
+                    <a href="https://www.productevangelist.co">productevangelist.co</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <h3 style="color: white; margin-bottom: 20px;">Product Evangelist Co.</h3>
-            <p style="margin-bottom: 30px;">Empowering teams with heart & science</p>
-            
-            <div class="contact-methods">
-                <a href="mailto:chantal@productevangelist.co" class="contact-method">📧 Email</a>
-                <a href="https://calendly.com/productevangelistco/virtual-coffee" class="contact-method">📅 Schedule Call</a>
-                <a href="tel:+34670512492" class="contact-method">📞 +34 670 512 492</a>
-                <a href="https://www.productevangelist.co" class="contact-method">🌍 Website</a>
-            </div>
-            
-            <p style="margin-top: 40px; opacity: 0.7; font-size: 0.9rem;">
-                © 2025 Product Evangelist Co. All rights reserved.
-            </p>
+            <h3 style="color: white; margin-bottom: 10px;">Product Evangelist Co.</h3>
+            <p style="margin-bottom: 20px; opacity: 0.8;">Empowering teams with heart & science</p>
+            <p style="opacity: 0.7; font-size: 0.9rem;">© 2025 Product Evangelist Co. All rights reserved.</p>
         </div>
     </footer>
 
@@ -898,12 +1347,6 @@
                 }
             });
         });
-
-        // Simple analytics tracking (replace with your actual analytics)
-        document.querySelectorAll('.cta-primary, .cta-secondary').forEach(button => {
-            button.addEventListener('click', function() {
-                console.log('CTA clicked:', this.textContent);
-                // Add your analytics tracking code here
-            });
-        });
     </script>
+</body>
+</html>
